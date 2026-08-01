@@ -1,0 +1,81 @@
+<!--
+  ═══════════════════════════════════════════════════════════
+   LMCServer 客户端 · PCL2 自定义主页
+   整合包版本: v1.7  |  主页版本: 1.0.0  |  更新日期: 2026-08-01
+   发布仓库: https://github.com/luozaixuan/mcserverclient
+   ═══════════════════════════════════════════════════════════
+   发新版整合包时请同步修改以下内容:
+   1. 本文件中的: 版本号 / 下载按钮的 EventData 直链 / 说明文字
+   2. Custom.xaml.ini 与 version 文件(递增主页版本号, 强制 PCL 刷新缓存)
+   3. index.html 中的版本与更新日志
+  ═══════════════════════════════════════════════════════════
+-->
+
+<!-- ════════════ 顶部横幅 ════════════ -->
+<local:MyCard Margin="0,0,0,12" Title="">
+    <StackPanel Margin="20,26,20,20">
+        <TextBlock Text="LMCServer 客户端" FontSize="22" FontWeight="Bold"
+            Foreground="{DynamicResource ColorBrush1}" HorizontalAlignment="Center" />
+        <TextBlock Text="Luozaixuan MCServer · 一键安装 / 一键更新"
+            FontSize="11" Foreground="{DynamicResource ColorBrush5}"
+            HorizontalAlignment="Center" Margin="0,8,0,0" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,16,0,0">
+            <local:MyIconButton Width="30" Height="30" Margin="0,0,8,0"
+                SvgIcon="lucide/refresh-cw" EventType="刷新主页" EventData="/" ToolTip="刷新主页" />
+            <local:MyButton Text="GitHub Release" ColorType="Highlight" Padding="16,6"
+                EventType="打开网页" EventData="https://github.com/luozaixuan/mcserverclient/releases/tag/v1.7" />
+        </StackPanel>
+    </StackPanel>
+</local:MyCard>
+
+<!-- ════════════ 一键安装 ════════════ -->
+<local:MyCard Title="一键安装 LMCServer 客户端" Margin="0,0,0,12">
+    <StackPanel Margin="20,35,20,18">
+        <local:MyHint Theme="Blue" Text="首次使用：请按顺序点击下方两个按钮，即可自动完成安装" />
+        <TextBlock Text="当前整合包版本：v1.7（发布于 2026-07-31）" FontSize="12"
+            Foreground="{DynamicResource ColorBrush1}" Margin="0,12,0,0" />
+        <TextBlock Text="① 点击下方按钮下载整合包，将自动保存到当前 .minecraft 文件夹，无需选择位置" FontSize="11"
+            Foreground="{DynamicResource ColorBrushGray2}" TextWrapping="Wrap" Margin="0,6,0,0" />
+        <local:MyButton Text="① 下载 LMCServer 整合包 (v1.7)" ColorType="Highlight" Height="36" Margin="0,8,0,0"
+            EventType="下载文件"
+            EventData="https://github.com/luozaixuan/mcserverclient/releases/download/v1.7/LMCServer.zip|LMCServer.zip|{minecraft}" />
+        <TextBlock Text="② 点击下方按钮导入整合包，在弹出的窗口中选择刚下载的 LMCServer.zip，实例名建议填写 LMCServer" FontSize="11"
+            Foreground="{DynamicResource ColorBrushGray2}" TextWrapping="Wrap" Margin="0,12,0,0" />
+        <local:MyButton Text="② 导入并安装整合包" ColorType="Normal" Height="36" Margin="0,8,0,0"
+            EventType="导入整合包" EventData="/" />
+    </StackPanel>
+</local:MyCard>
+
+<!-- ════════════ 一键更新 ════════════ -->
+<local:MyCard Title="一键更新 LMCServer 整合包" Margin="0,0,0,12">
+    <StackPanel Margin="20,35,20,18">
+        <TextBlock FontSize="12" Foreground="{DynamicResource ColorBrush1}" TextWrapping="Wrap">
+            <Run Text="当前选中实例：" /><Run FontWeight="Bold" Text="{name}" Foreground="{DynamicResource ColorBrush2}" />
+        </TextBlock>
+        <local:MyHint Theme="Yellow" Text="更新前请确认：启动页左侧选中的实例为 LMCServer（如上方显示）" Margin="0,10,0,0" />
+        <TextBlock Text="已安装过 LMCServer 实例时：重新下载最新整合包并导入安装，实例名填写与现有实例相同的名称（LMCServer），PCL 会自动覆盖更新该实例的文件（mods、config 等），世界存档与玩家数据不会丢失" FontSize="11"
+            Foreground="{DynamicResource ColorBrushGray2}" TextWrapping="Wrap" Margin="0,12,0,0" />
+        <local:MyButton Text="① 下载最新整合包" ColorType="Highlight" Height="36" Margin="0,8,0,0"
+            EventType="下载文件"
+            EventData="https://github.com/luozaixuan/mcserverclient/releases/download/v1.7/LMCServer.zip|LMCServer.zip|{minecraft}" />
+        <local:MyButton Text="② 安装到已有 LMCServer 实例（即覆盖更新）" ColorType="Normal" Height="36" Margin="0,8,0,0"
+            EventType="导入整合包" EventData="/" />
+    </StackPanel>
+</local:MyCard>
+
+<!-- ════════════ 更多信息 ════════════ -->
+<local:MyCard Title="更多信息" Margin="0,0,0,12">
+    <StackPanel Margin="14,35,14,14">
+        <local:MyListItem Title="GitHub 发布页" Info="查看所有版本与更新日志"
+            Type="Clickable" EventType="打开网页"
+            EventData="https://github.com/luozaixuan/mcserverclient/releases" />
+        <local:MyListItem Title="v1.7 更新说明" Info="https://github.com/luozaixuan/mcserverclient/releases/tag/v1.7"
+            Type="Clickable" EventType="打开网页"
+            EventData="https://github.com/luozaixuan/mcserverclient/releases/tag/v1.7" />
+    </StackPanel>
+</local:MyCard>
+
+<!-- ════════════ 页脚 ════════════ -->
+<TextBlock Text="LMCServer 客户端主页 · 主页版本 1.0.0 · 整合包 v1.7"
+    FontSize="10" Foreground="{DynamicResource ColorBrushGray4}"
+    HorizontalAlignment="Center" Margin="0,2,0,14" IsHitTestVisible="False" />

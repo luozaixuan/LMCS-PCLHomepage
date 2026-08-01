@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LMCServer 客户端主页</title>
+<style>
+    :root {
+        --bg: #10131a;
+        --card: #171c26;
+        --border: #232a38;
+        --text: #e6e9ef;
+        --muted: #8b94a7;
+        --accent: #4da3ff;
+        --accent2: #2dd4a7;
+        --warn: #f5b942;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 48px 20px 64px; }
+    .hero { text-align: center; margin-bottom: 40px; }
+    .hero h1 { font-size: 32px; font-weight: 700; letter-spacing: 1px; }
+    .hero p { color: var(--muted); margin-top: 8px; font-size: 14px; }
+    .badge {
+        display: inline-block; margin-top: 14px; padding: 4px 14px;
+        border: 1px solid var(--border); border-radius: 999px;
+        color: var(--accent2); font-size: 13px; background: rgba(45, 212, 167, .08);
+    }
+    .card {
+        background: var(--card); border: 1px solid var(--border);
+        border-radius: 12px; padding: 22px 24px; margin-bottom: 20px;
+    }
+    .card h2 { font-size: 18px; margin-bottom: 12px; }
+    .card h2 .num {
+        display: inline-block; width: 24px; height: 24px; line-height: 24px;
+        text-align: center; border-radius: 6px; background: var(--accent);
+        color: #fff; font-size: 14px; margin-right: 8px;
+    }
+    ol.steps { padding-left: 20px; }
+    ol.steps li { margin-bottom: 8px; color: var(--text); }
+    code {
+        background: #0c0f15; border: 1px solid var(--border);
+        border-radius: 6px; padding: 2px 8px; font-size: 13px;
+        color: var(--accent); user-select: all;
+    }
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    .btn {
+        flex: 1; min-width: 200px; text-align: center; padding: 12px 20px;
+        border-radius: 8px; font-size: 15px; font-weight: 600;
+        text-decoration: none; transition: transform .12s, box-shadow .12s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { background: var(--accent); color: #fff; }
+    .btn.primary:hover { box-shadow: 0 6px 18px rgba(77, 163, 255, .35); }
+    .btn.ghost { border: 1px solid var(--border); color: var(--text); background: transparent; }
+    .btn.ghost:hover { border-color: var(--accent); }
+    .warn { color: var(--warn); font-size: 13px; margin-top: 10px; }
+    .note { color: var(--muted); font-size: 13px; margin-top: 6px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 500; }
+    .footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 32px; }
+    a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+    <div class="hero">
+        <h1>LMCServer 客户端</h1>
+        <p>Luozaixuan MCServer · PCL 启动器远程主页</p>
+        <span class="badge">当前整合包版本 v1.7 · 2026-07-31</span>
+    </div>
+
+    <div class="card">
+        <h2><span class="num">1</span>在 PCL 中设置本主页</h2>
+        <ol class="steps">
+            <li>打开 <b>PCL 启动器</b>（2.8.1 及以上版本）</li>
+            <li>依次点击 <b>设置 → 个性化 → 自定义主页 → 联网更新</b></li>
+            <li>在“下载地址”中填入：<br><code>https://你的域名/Custom.xaml</code></li>
+            <li>返回启动页，主页加载完成 ✓</li>
+        </ol>
+        <p class="note">提示：PCL 会自动检查 <code>Custom.xaml.ini</code> 中的版本号，主页更新后会自动刷新缓存。</p>
+    </div>
+
+    <div class="card">
+        <h2><span class="num">2</span>安装 LMCServer 客户端（首次）</h2>
+        <p>在主页上点击 <b>「① 下载 LMCServer 整合包」</b>，文件会自动保存到当前 <code>.minecraft</code> 文件夹；<br>
+        再点击 <b>「② 导入并安装整合包」</b>，选择刚下载的 <code>LMCServer.zip</code>，实例名填写 <b>LMCServer</b> 即可。</p>
+        <div class="btn-row">
+            <a class="btn primary" href="https://github.com/luozaixuan/mcserverclient/releases/download/v1.7/LMCServer.zip">直接下载 LMCServer.zip (v1.7)</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><span class="num">3</span>更新 LMCServer 整合包</h2>
+        <p>在启动页左侧选中 <b>LMCServer</b> 实例后，回到主页点击 <b>「① 下载最新整合包」</b>，再点击 <b>「② 安装到已有 LMCServer 实例」</b>；<br>
+        导入安装时实例名保持为 <b>LMCServer</b>，PCL 会自动覆盖更新该实例的文件，<b>世界存档与玩家数据不会丢失</b>。</p>
+        <p class="warn">⚠ 更新前请确认主页上显示的“当前选中实例”为 LMCServer。</p>
+    </div>
+
+    <div class="card">
+        <h2><span class="num">4</span>更新日志</h2>
+        <table>
+            <thead><tr><th>版本</th><th>日期</th><th>说明</th></tr></thead>
+            <tbody>
+                <tr><td>v1.7</td><td>2026-07-31</td><td>最新版本，详见 <a href="https://github.com/luozaixuan/mcserverclient/releases/tag/v1.7">GitHub Release</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        LMCServer 客户端主页 v1.0.0 · 发布仓库
+        <a href="https://github.com/luozaixuan/mcserverclient">github.com/luozaixuan/mcserverclient</a>
+    </div>
+
+</div>
+</body>
+</html>
